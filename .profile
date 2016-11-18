@@ -9,8 +9,7 @@ source /usr/local/etc/profile.d/z.sh
 alias ..="cd ../"
 
 mkd() {
-  mkdir $1
-  cd $1
+	mkdir -p "$@" && cd "$_";
 }
 
 # Project Aliases
