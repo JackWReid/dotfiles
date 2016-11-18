@@ -1,6 +1,6 @@
 # Prompt
 # (~ ▲) in white and cyan
-export PS1="\[\e[0;37m\]\W \[\e[0;36m\]▲ \[\e[0m\]"
+export PS1="\[\e[0;37m\]\W\[\e[0;36m\]\$(parse_git_branch) ▲ \[\e[0m\]"
 
 # Z
 source /usr/local/etc/profile.d/z.sh
@@ -10,6 +10,10 @@ alias ..="cd ../"
 
 mkd() {
 	mkdir -p "$@" && cd "$_";
+}
+
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # Project Aliases
