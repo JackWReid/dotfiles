@@ -93,3 +93,11 @@ setMacOS() {
 
   echo "Done setting MacOS defaults."
 }
+
+installHomebrew() {
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
+installBrewApps() {
+	brew install jq awscli aria2 postresql tree unrar z
+}
